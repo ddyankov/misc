@@ -77,7 +77,7 @@ object FileSystem {
   def getDeepestDir(dest: Array[String], children: Set[INode]): Option[String] = {
     dest match {
       case d: Array[String] if d.isEmpty => None
-      case d: Array[String] if(dest.size == 1 && children.filter(c => c.fileName.equals(dest.head)).size > 0)
+      case d: Array[String] if(dest.size == 1 && children.filter(c => c.fileName.equals(dest.head)).filter(d => d.isDir).size == 1)
         => Some(dest.head)
       case d: Array[String] if (index.getOrElse(dest.head, null) != null) => getDeepestDir(dest drop 1, index.get(dest.head).get.children)
       case _ => None
