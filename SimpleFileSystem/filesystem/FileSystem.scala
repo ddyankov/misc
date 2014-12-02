@@ -50,7 +50,7 @@ object FileSystem {
     val target = dest.trim.split("/").filter(e => !e.trim.isEmpty)
     val start = {
       dest match {
-        case d: String if d.contains("/") => "/"
+        case d: String if d.startsWith("/") => "/"
         case d: String if currentDir.length > 1 => currentDir.split("/").filter(e => !e.trim.isEmpty).last
         case _ => currentDir
       }
@@ -64,7 +64,7 @@ object FileSystem {
     }
 
     currentDir = {
-      if (dest.contains("/")) {
+      if (dest.startsWith("/")) {
         dest
       } else if (currentDir.endsWith("/")) {
         currentDir + dest
