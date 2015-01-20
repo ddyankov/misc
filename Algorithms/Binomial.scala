@@ -1,5 +1,3 @@
-package hackercup2015.round1
-
 /**
  * Calculates n choose k mod some_prime using Fermat's little theorem.
  */
