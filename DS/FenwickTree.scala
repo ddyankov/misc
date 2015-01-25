@@ -35,7 +35,7 @@ object FenwickTree {
       left -= left & (-left)
     }
 
-    //fid right
+    //find right
     var right = end+1
     while (right > 0) {
       rightSum += fanwick(right)
