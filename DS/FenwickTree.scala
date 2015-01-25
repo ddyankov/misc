@@ -6,14 +6,13 @@ import scala.collection.mutable.ArrayBuffer
 object FenwickTree {
 
   def build(arr: Array[Int]): ArrayBuffer[Int] = {
+    val fenwick = new ArrayBuffer[Int](arr.length+1)
 
-    val fanwick = new ArrayBuffer[Int](arr.length+1)
-
-    (0 to arr.length).foreach{r=> fanwick.append(0)}
+    (0 to arr.length).foreach{r=> fenwick.append(0)}
     for (i<-0 until arr.length) {
-      update(fanwick, i, arr(i))
+      update(fenwick, i, arr(i))
     }
-    fanwick
+    fenwick
   }
 
   def update(fanwick: ArrayBuffer[Int], index: Int, num: Int): Unit = {
